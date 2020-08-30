@@ -1,8 +1,8 @@
 function Home() {
   return (
-    <>
-      to jest strona główna
-    </>
+    <div className="container">
+      <h1>To jest strona główna</h1>
+    </div>
   )
 }
 

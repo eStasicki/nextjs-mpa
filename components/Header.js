@@ -1,11 +1,15 @@
-// import App from 'next/app'
+import styled from '@emotion/styled'
 
 function Header() {
   return (
-    <header>
-      To jest Header aplikacji
-    </header>
+    <HeaderStyled>
+      To jest HeaderStyledHeaderStyled aplikacji
+    </HeaderStyled>
   )
 }
+
+const HeaderStyled = styled.header `
+  background: red;
+`
 
 export default Header
