@@ -12,10 +12,10 @@ function Login() {
     />
     <div className={cx("wrapper")}>
       <div className={cx("form-box")}>
-        <form autocomplete="off">
+        <form>
           <div className={cx("email-box")}>
             <p>Adres e-mail</p>
-            <input type="text" autoComplete="off" />
+            <input type="text" />
           </div>
           <div className={cx("password-box")}>
             <p>Hasło:</p>
