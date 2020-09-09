@@ -14,7 +14,7 @@ function LeftSidebar() {
         </Link>
       </li>
       <li>
-        <Link activeClassName={cx("active")} href="/Projects">
+        <Link activeClassName={cx("active")} href="/projects">
           <a className='nav-link'>Projekty</a>
         </Link>
       </li>
