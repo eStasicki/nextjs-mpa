@@ -1,9 +1,49 @@
-@import 'styles/globals.scss';
+@import '@/styles/globals.scss';
 
-header {
-  background: red;
-  width: 100%;
-  .container {
-    background: $color-one;
+.wrapper {
+  position: absolute;
+  left: 15%;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  background: rgba($color-five, 0.2);
+  height: vw(50px);
+  font-size: vw(16px);
+  @include xl {
+    justify-content: space-between;
   }
+
+  .user-profile {
+    margin-left: vw(15px);
+  }
+
+  .right-buttons {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    ul {
+      position: relative;
+      height: 100%;
+      li {
+        height: 100%;
+      }
+    }
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      border: none;
+      background: $color-two;
+      color: $color-five;
+      padding: 0 vw(30px);
+      transition: all 0.3s ease;
+      &:hover {
+        background: $color-six;
+      }
+    }
+  }
+
 }

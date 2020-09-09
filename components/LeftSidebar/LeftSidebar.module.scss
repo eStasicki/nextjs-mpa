@@ -1,0 +1,47 @@
+@import '@/styles/globals.scss';
+
+.wrapper {
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  background: rgba($color-two, 0.3);
+  padding: vw(15px);
+
+  ul {
+    width: 100%;
+    li {
+      margin-bottom: vw(15px);
+      &:last-child {
+        margin-bottom: 0;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        padding: vw(15px);
+        background: $color-one;
+        border-radius: vw(10px);
+        color: $color-five;
+        font-weight: 500;
+        text-decoration: none;
+        font-size: vw(15px);
+        transition: all 0.2s ease;
+        &.active {
+          background: $color-two;
+        }
+      }
+      &.add-project {
+        a {
+          &:hover {
+            background: $color-green;
+          }
+          &.active {
+            background: $color-green;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,9 @@
 module.exports = {
+
+  devIndicators: {
+    autoPrerender: false,
+  },
+
   webpack: (config) => {
     const oneOf = config.module.rules.find(
       (rule) => typeof rule.oneOf === 'object'

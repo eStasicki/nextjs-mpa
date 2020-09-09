@@ -4,10 +4,13 @@ let cx = classNames.bind(styles);
 
 function Header() {
   return (
-    <header>
-      <div className={cx("container", "test")}>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis nisi delectus quasi. Veritatis voluptatibus sequi sint perferendis corrupti porro. Atque delectus numquam laudantium aliquid, rem dolorum doloremque mollitia sed autem.
-      </div>
+    <header className={cx("wrapper")}>
+      <span className={cx("user-profile")}>Witaj, Ernest Stasicki</span>
+      <span className={cx("right-buttons")}>
+        <ul>
+          <li><button className={cx("btn")}>Wyloguj się</button></li>
+        </ul>
+      </span>
     </header>
   )
 }

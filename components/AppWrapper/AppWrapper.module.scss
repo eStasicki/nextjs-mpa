@@ -1,0 +1,13 @@
+@import '@/styles/globals.scss';
+
+.box {
+  position: fixed;
+  top: vw(50px);
+  left: 15%;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  .container {
+    padding: vw(15px);
+  }
+}
