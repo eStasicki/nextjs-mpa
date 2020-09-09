@@ -1,10 +1,25 @@
-const path = require('path')
-
 module.exports = {
-  webpack: config => {
-    config.resolve.alias['components'] = path.join(__dirname, 'components')
-    config.resolve.alias['public'] = path.join(__dirname, 'public')
+  webpack: (config) => {
+    const oneOf = config.module.rules.find(
+      (rule) => typeof rule.oneOf === 'object'
+    );
 
-    return config
-  }
-}
+    const fixUse = (use) => {
+      if (use.loader.indexOf('css-loader') >= 0 && use.options.modules) {
+        use.options.modules.mode = 'local';
+      }
+    };
+
+    if (oneOf) {
+      oneOf.oneOf.forEach((rule) => {
+        if (Array.isArray(rule.use)) {
+          rule.use.map(fixUse);
+        } else if (rule.use && rule.use.loader) {
+          fixUse(rule.use);
+        }
+      });
+    }
+
+    return config;
+  },
+};

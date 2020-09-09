@@ -1,0 +1,9 @@
+@import 'styles/globals.scss';
+
+header {
+  background: red;
+  width: 100%;
+  .container {
+    background: $color-one;
+  }
+}
