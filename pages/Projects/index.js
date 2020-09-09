@@ -1,5 +1,15 @@
+import { NextSeo } from 'next-seo';
+
 function Projects() {
-  return <div>To jest strona: "Projekty"</div>
+  return (
+    <>
+    <NextSeo
+      title={"Projekty"}
+      description={"Opis strony tutaj"} 
+    />
+    <p>Testowanie SEO</p>
+    </>
+  )
 }
 
 export default Projects
