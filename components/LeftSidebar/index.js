@@ -12,7 +12,7 @@ function LeftSidebar() {
         {({ loading, error, data }) => {
           if (loading)
           return (
-            <div>Wczytywanie menu...</div>
+            <p>Wczytywanie...</p>
           )
           if (error) return false
           return (
@@ -20,7 +20,7 @@ function LeftSidebar() {
                 { data.menuItems.nodes.length > 0 ? 
                   <>
                   {data.menuItems.nodes.map((menu) => (
-                    <li>
+                    <li key={menu.id}>
                       <Link activeClassName={cx("active")} href={menu.url}>
                         <a>{menu.label}</a>
                       </Link>

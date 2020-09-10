@@ -6,6 +6,8 @@ import styles from '@/components/AppWrapper/AppWrapper.module.scss'
 import classNames from "classnames/bind"
 import ApolloClient from "apollo-boost"
 import { ApolloProvider } from "react-apollo"
+import { DefaultSeo } from 'next-seo';
+import SEO from '../next-seo.config';
 let cx = classNames.bind(styles)
 
 import { useRouter } from 'next/router'
@@ -26,7 +28,7 @@ function MyApp({ Component, pageProps }) {
         { router.route !== "/login" 
           ?
           <>
-            
+            <DefaultSeo {...SEO} />
             <Header />
             <LeftSidebar />
             <div className={cx("box")}>
