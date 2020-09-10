@@ -12,6 +12,10 @@ let cx = classNames.bind(styles)
 
 import { useRouter } from 'next/router'
 
+import { parseCookies } from 'nookies'
+
+import Router from 'next/router'
+
 const { API_URL } = process.env
 
 const client = new ApolloClient({
@@ -36,7 +40,6 @@ function MyApp({ Component, pageProps }) {
                 <Component {...pageProps} />
               </div>
             </div>
-            
           </>
           :
           <>
@@ -46,6 +49,36 @@ function MyApp({ Component, pageProps }) {
         </ApolloProvider>
     </>
   )
+}
+
+function redirectUser(ctx, location) {
+  if ( ctx.req ) {
+    ctx.res.writeHead(302, {Location: location});
+    ctx.res.end();
+  }
+  else {
+    Router.push(location);
+  }
+}
+
+MyApp.getInitialProps = async ({Component, ctx}) => {
+  let pageProps = {}
+  const jwt = parseCookies(ctx).jwt;
+
+  if( Component.getInitialProps ) {
+    pageProps = await Component.getInitialProps(ctx);
+  }
+
+  if(!jwt) {
+    if( ctx.pathname === '/projects' ) {
+      redirectUser(ctx, "/login");
+    }
+  }
+
+  return {
+    pageProps
+  }
+
 }
 
 export default MyApp
