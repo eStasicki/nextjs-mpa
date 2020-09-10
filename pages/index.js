@@ -1,18 +1,6 @@
 import { NextSeo } from 'next-seo';
-
 import { Query } from "react-apollo"
-import gql from "graphql-tag"
-
-const GET_POSTS = gql`
-  {
-    posts(where: {author: ${1}}) {
-      nodes {
-        title
-        id
-      }
-    }
-  }
-`
+import { getAllPosts } from "@/queries/getAllPosts"
 
 function Index() {
   return (
@@ -23,7 +11,7 @@ function Index() {
     />
     <p>To jest strona: "Przegląd projektów"</p>
 
-    <Query query={GET_POSTS}>
+    <Query query={getAllPosts}>
         {({ loading, error, data }) => {
           if (loading)
             return (
@@ -36,7 +24,7 @@ function Index() {
             <div>
                 { data.posts.nodes.length > 0 ? 
                   <>
-                  {data.posts.nodes.map((post, index) => (
+                  {data.posts.nodes.map((post) => (
                     <p key={post.id}>{post.title}</p>
                   ))}
                   </>
