@@ -24,13 +24,15 @@
     top: 0;
     bottom: 0;
     ul {
+      display: flex;
       position: relative;
       height: 100%;
       li {
         height: 100%;
       }
     }
-    button {
+    button,
+    a {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -44,6 +46,12 @@
         background: $color-six;
       }
     }
+    a {
+      background: transparent;
+      &:hover {
+        background: $color-white;
+        color: $color-one;
+      }
+    }
   }
-
 }

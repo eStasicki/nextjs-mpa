@@ -31,7 +31,10 @@ function MyApp({ Component, pageProps }) {
         {router.route !== '/login' ? (
           <>
             <DefaultSeo {...SEO} />
-            <Header username={cookies.userNicename} />
+            <Header
+              username={cookies.userNicename}
+              userGroup={cookies.userRole}
+            />
             <LeftSidebar />
             <div className={cx('box')}>
               <div className={cx('container')}>

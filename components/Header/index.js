@@ -4,6 +4,8 @@ import { destroyCookie } from 'nookies';
 let cx = classNames.bind(styles);
 import Router from 'next/router';
 
+const { BACKEND_URL } = process.env;
+
 function Logout() {
   destroyCookie(null, 'userSecret');
   destroyCookie(null, 'userEmail');
@@ -14,12 +16,19 @@ function Logout() {
   Router.push('/login');
 }
 
-function Header({ username }) {
+function Header({ username, userGroup }) {
   return (
     <header className={cx('wrapper')}>
       <span className={cx('user-profile')}>Witaj, {username}</span>
       <span className={cx('right-buttons')}>
         <ul>
+          {userGroup == 'administrator' && (
+            <li>
+              <a href={BACKEND_URL} className={cx('btn')} target="_blank">
+                Panel administracyjny
+              </a>
+            </li>
+          )}
           <li>
             <button className={cx('btn')} onClick={Logout}>
               Wyloguj się
