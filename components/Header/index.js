@@ -5,8 +5,6 @@ let cx = classNames.bind(styles)
 import Router from 'next/router'
 const cookies = parseCookies()
 
-console.log(cookies);
-
 function Logout() {
   destroyCookie(null, 'userSecret');
   destroyCookie(null, 'userEmail');
@@ -17,7 +15,7 @@ function Logout() {
   Router.push('/login');
 }
 
-function Header({username}) {
+function Header( {username} ) {
   return (
     <header className={cx("wrapper")}>
       <span className={cx("user-profile")}>Witaj, {username}</span>

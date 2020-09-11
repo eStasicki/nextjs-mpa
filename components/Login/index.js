@@ -68,7 +68,7 @@ function Login() {
       alert(loginResponse.message)
     }
     //Router.push('/');
-    console.log(loginResponse);
+    //console.log(loginResponse);
 
   }
 

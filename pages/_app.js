@@ -22,6 +22,7 @@ const client = new ApolloClient({
   uri: API_URL,
 })
 
+const cookies = parseCookies()
 function MyApp({ Component, pageProps }) {
 
   const router = useRouter();
@@ -33,7 +34,7 @@ function MyApp({ Component, pageProps }) {
           ?
           <>
             <DefaultSeo {...SEO} />
-            <Header />
+            <Header username={cookies.userNicename} />
             <LeftSidebar />
             <div className={cx("box")}>
               <div className={cx("container")}>
