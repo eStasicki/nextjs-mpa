@@ -1,9 +1,8 @@
 import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
-import { parseCookies, destroyCookie } from 'nookies';
+import { destroyCookie } from 'nookies';
 let cx = classNames.bind(styles);
 import Router from 'next/router';
-const cookies = parseCookies();
 
 function Logout() {
   destroyCookie(null, 'userSecret');

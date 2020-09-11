@@ -22,10 +22,9 @@ const client = new ApolloClient({
   uri: API_URL,
 });
 
-const cookies = parseCookies();
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-
+  const cookies = parseCookies();
   return (
     <>
       <ApolloProvider client={client}>
