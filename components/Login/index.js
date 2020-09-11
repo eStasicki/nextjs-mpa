@@ -2,11 +2,11 @@ import styles from './Login.module.scss';
 import classNames from 'classnames/bind';
 import { NextSeo } from 'next-seo';
 let cx = classNames.bind(styles);
-import { useState, setState, useEffect } from 'react';
+import { useState } from 'react';
 import { setCookie } from 'nookies';
 import Router from 'next/router';
 
-function Login({ loginResponseMessage }) {
+function Login() {
   const siteUrl = 'http://backend.estasicki.pl/myprojects';
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -61,15 +61,15 @@ function Login({ loginResponseMessage }) {
       });
 
       Router.push('/');
-      //console.log(loginResponse);
     } else {
-      //alert(loginResponse.message);
-      console.log(loginResponse.message);
-      //loginResponseMessage = loginResponse.message;
       setMessageText(loginResponse.message);
+      setTimeout(
+        function () {
+          setMessageText(false);
+        }.bind(this),
+        5000
+      );
     }
-    //Router.push('/');
-    //console.log(loginResponse);
   }
 
   return (
@@ -79,13 +79,13 @@ function Login({ loginResponseMessage }) {
         description={'Panel logowania'}
       />
       <div className={cx('wrapper')}>
+        {messageText && (
+          <div
+            className={cx('alert-box')}
+            dangerouslySetInnerHTML={{ __html: messageText }}
+          />
+        )}
         <div className={cx('form-box')}>
-          {messageText && (
-            <div
-              className={cx('alert-box')}
-              dangerouslySetInnerHTML={{ __html: messageText }}
-            />
-          )}
           <form autoComplete="off">
             <div className={cx('email-box')}>
               <p>Adres e-mail</p>
