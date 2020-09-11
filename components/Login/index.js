@@ -6,8 +6,10 @@ import { useState } from 'react';
 import { setCookie } from 'nookies';
 import Router from 'next/router';
 
+const { API_URL_REST } = process.env;
+
 function Login() {
-  const siteUrl = 'http://backend.estasicki.pl/myprojects';
+  const siteUrl = API_URL_REST;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [messageText, setMessageText] = useState('');
