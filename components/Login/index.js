@@ -86,12 +86,18 @@ function Login() {
           />
         )}
         <div className={cx('form-box')}>
-          <form autoComplete="off">
+          <form
+            autoComplete="off"
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleLogin();
+            }}
+          >
             <div className={cx('email-box')}>
               <p>Adres e-mail</p>
               <input
                 type="text"
-                autoComplete="no"
+                autoComplete="off"
                 onChange={(e) => setUsername(e.target.value)}
                 value={username}
               />
@@ -100,6 +106,7 @@ function Login() {
               <p>Hasło:</p>
               <input
                 type="password"
+                autoComplete="off"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
               />
@@ -108,7 +115,12 @@ function Login() {
               <button type="button" onClick={() => handleLogin()}>
                 Zaloguj się
               </button>
-              <button className={cx('register')}>Rejestracja</button>
+              <button
+                className={cx('register')}
+                onClick={() => Router.push('/register')}
+              >
+                Rejestracja
+              </button>
             </div>
           </form>
         </div>
