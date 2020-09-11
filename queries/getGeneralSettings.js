@@ -1,4 +1,4 @@
-import gql from "graphql-tag"
+import gql from 'graphql-tag';
 
 export const getGeneralSettings = gql`
   {
@@ -14,6 +14,6 @@ export const getGeneralSettings = gql`
       dateFormat
     }
   }
-`
+`;
 
-export default getGeneralSettings
+export default getGeneralSettings;

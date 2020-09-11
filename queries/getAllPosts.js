@@ -1,4 +1,4 @@
-import gql from "graphql-tag"
+import gql from 'graphql-tag';
 
 export const getAllPosts = gql`
   {
@@ -9,6 +9,6 @@ export const getAllPosts = gql`
       }
     }
   }
-`
+`;
 
-export default getAllPosts
+export default getAllPosts;

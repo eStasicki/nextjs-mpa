@@ -1,8 +1,8 @@
-import gql from "graphql-tag"
+import gql from 'graphql-tag';
 
 export const getSidebarMenu = gql`
   {
-    menuItems(where: {location: SIDEBAR_MENU}) {
+    menuItems(where: { location: SIDEBAR_MENU }) {
       nodes {
         id
         label
@@ -10,6 +10,6 @@ export const getSidebarMenu = gql`
       }
     }
   }
-`
+`;
 
-export default getSidebarMenu
+export default getSidebarMenu;
