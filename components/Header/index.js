@@ -1,9 +1,9 @@
-import styles from './Header.module.scss'
-import classNames from "classnames/bind"
-import { parseCookies, destroyCookie } from 'nookies'
-let cx = classNames.bind(styles)
-import Router from 'next/router'
-const cookies = parseCookies()
+import styles from './Header.module.scss';
+import classNames from 'classnames/bind';
+import { parseCookies, destroyCookie } from 'nookies';
+let cx = classNames.bind(styles);
+import Router from 'next/router';
+const cookies = parseCookies();
 
 function Logout() {
   destroyCookie(null, 'userSecret');
@@ -15,17 +15,21 @@ function Logout() {
   Router.push('/login');
 }
 
-function Header( {username} ) {
+function Header({ username }) {
   return (
-    <header className={cx("wrapper")}>
-      <span className={cx("user-profile")}>Witaj, {username}</span>
-      <span className={cx("right-buttons")}>
+    <header className={cx('wrapper')}>
+      <span className={cx('user-profile')}>Witaj, {username}</span>
+      <span className={cx('right-buttons')}>
         <ul>
-          <li><button className={cx("btn")} onClick={Logout}>Wyloguj się</button></li>
+          <li>
+            <button className={cx('btn')} onClick={Logout}>
+              Wyloguj się
+            </button>
+          </li>
         </ul>
       </span>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
