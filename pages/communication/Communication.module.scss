@@ -1,0 +1,24 @@
+@import '@/styles/globals.scss';
+
+.top-bar {
+  position: relative;
+  display: flex;
+  padding: vw(15px);
+  background: rgba($color-three, 0.2);
+  border-radius: vw(5px);
+  li {
+    position: relative;
+    display: flex;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: vw(10px);
+      border-radius: vw(5px);
+      transition: all 0.2s linear;
+      &:hover {
+        background: $color-green;
+      }
+    }
+  }
+}
