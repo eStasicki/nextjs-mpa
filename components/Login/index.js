@@ -31,19 +31,44 @@ function Login() {
 
     if( loginResponse.token != undefined ) {
 
-      setCookie(null, 'jwt', loginResponse.token, {
+      setCookie(null, 'userSecret', loginResponse.token, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+      })
+
+      setCookie(null, 'userEmail', loginResponse.user_email, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+      })
+
+      setCookie(null, 'userNicename', loginResponse.user_nicename, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+      })
+
+      setCookie(null, 'userDisplayName', loginResponse.user_display_name, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+      })
+
+      setCookie(null, 'userRole', loginResponse.user_role[0], {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+      })
+
+      setCookie(null, 'userId', loginResponse.user_id, {
         maxAge: 30 * 24 * 60 * 60,
         path: '/',
       })
 
       Router.push('/');
-      console.log(loginResponse);
+      //console.log(loginResponse);
     }
     else {
       alert(loginResponse.message)
     }
     //Router.push('/');
-    //console.log(loginResponse);
+    console.log(loginResponse);
 
   }
 

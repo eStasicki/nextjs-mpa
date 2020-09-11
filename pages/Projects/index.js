@@ -12,4 +12,10 @@ function Projects() {
   )
 }
 
+// export async function getServerSideProps({ ctx }) {
+//   const cookies = parseCookies(ctx);
+//   console.log(cookies);
+//   return { cookies }
+// }
+
 export default Projects

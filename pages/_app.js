@@ -63,13 +63,13 @@ function redirectUser(ctx, location) {
 
 MyApp.getInitialProps = async ({Component, ctx}) => {
   let pageProps = {}
-  const jwt = parseCookies(ctx).jwt;
+  const userSecret = parseCookies(ctx).userSecret;
 
   if( Component.getInitialProps ) {
     pageProps = await Component.getInitialProps(ctx);
   }
 
-  if(!jwt) {
+  if(!userSecret) {
     if( ctx.pathname === '/projects' ) {
       redirectUser(ctx, "/login");
     }
