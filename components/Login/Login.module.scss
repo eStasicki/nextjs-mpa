@@ -14,6 +14,15 @@
     padding: vw(15px);
     border-radius: vw(10px);
     min-width: vw(330px);
+    max-width: vw(330px);
+    .alert-box {
+      text-align: center;
+      padding: vw(10px);
+      background: rgba($color-six, 0.7);
+      border-radius: vw(5px);
+      margin-bottom: vw(25px);
+      font-size: vw(13px);
+    }
     input {
       border: none;
       border-radius: vw(5px);

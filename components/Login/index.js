@@ -2,14 +2,15 @@ import styles from './Login.module.scss';
 import classNames from 'classnames/bind';
 import { NextSeo } from 'next-seo';
 let cx = classNames.bind(styles);
-import { useState, setState } from 'react';
+import { useState, setState, useEffect } from 'react';
 import { setCookie } from 'nookies';
 import Router from 'next/router';
 
-function Login() {
+function Login({ loginResponseMessage }) {
   const siteUrl = 'http://backend.estasicki.pl/myprojects';
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [messageText, setMessageText] = useState('');
 
   async function handleLogin() {
     const loginInfo = {
@@ -62,7 +63,10 @@ function Login() {
       Router.push('/');
       //console.log(loginResponse);
     } else {
-      alert(loginResponse.message);
+      //alert(loginResponse.message);
+      console.log(loginResponse.message);
+      //loginResponseMessage = loginResponse.message;
+      setMessageText(loginResponse.message);
     }
     //Router.push('/');
     //console.log(loginResponse);
@@ -76,11 +80,18 @@ function Login() {
       />
       <div className={cx('wrapper')}>
         <div className={cx('form-box')}>
-          <form>
+          {messageText && (
+            <div
+              className={cx('alert-box')}
+              dangerouslySetInnerHTML={{ __html: messageText }}
+            />
+          )}
+          <form autoComplete="off">
             <div className={cx('email-box')}>
               <p>Adres e-mail</p>
               <input
                 type="text"
+                autoComplete="no"
                 onChange={(e) => setUsername(e.target.value)}
                 value={username}
               />
