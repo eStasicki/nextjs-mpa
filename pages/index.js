@@ -2,9 +2,7 @@ import { NextSeo } from 'next-seo';
 import { Query } from 'react-apollo';
 import { getAllPosts } from '@/queries/getAllPosts';
 import { parseCookies } from 'nookies';
-import Router from 'next/router';
 const cookies = parseCookies();
-console.log(cookies);
 
 function Index() {
   return (
@@ -34,13 +32,5 @@ function Index() {
     </>
   );
 }
-
-// Index.getInitialProps = async ctx => {
-//   let pageProps = {}
-//   const userSecret = parseCookies(ctx).userSecret;
-
-//   Router.push("/");
-
-// }
 
 export default Index;

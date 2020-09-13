@@ -1,11 +1,11 @@
 import gql from 'graphql-tag';
 import { parseCookies } from 'nookies';
 
-const cookies = parseCookies();
+//const cookies = parseCookies();
 
 export const getMyProjects = gql`
   {
-    posts(where: { author: ${cookies.userId} }) {
+    posts(where: { author: ${ID} }) {
       nodes {
         title
         id

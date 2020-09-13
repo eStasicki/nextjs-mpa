@@ -1,8 +1,11 @@
 import { NextSeo } from 'next-seo';
 import { Query } from 'react-apollo';
-import { getMyProjects } from '@/queries/getMyProjects';
+import gql from 'graphql-tag';
+//import { getMyProjects } from '@/queries/getMyProjects';
 
-function Projects() {
+import { parseCookies } from 'nookies';
+
+function Projects({ myProjectsQuery }) {
   return (
     <>
       <NextSeo title={'Projekty'} description={'Opis strony tutaj'} />
@@ -10,7 +13,10 @@ function Projects() {
 
       <h2>Lista projektów per User</h2>
       <hr />
-      <Query query={getMyProjects}>
+      {/* {console.log('UserID: ' + myProjects)} */}
+      <hr />
+      <br />
+      <Query query={myProjectsQuery}>
         {({ loading, error, data }) => {
           if (loading) return <div>Wczytywanie...</div>;
           if (error) return false;
@@ -32,5 +38,25 @@ function Projects() {
     </>
   );
 }
+
+Projects.getInitialProps = async (ctx) => {
+  const cookies = parseCookies();
+  const currentUserId = cookies.userId;
+
+  const myProjectsQuery = gql`
+    {
+      posts(where: { author: ${currentUserId} }) {
+        nodes {
+          title
+          id
+        }
+      }
+    }
+  `;
+
+  return {
+    myProjectsQuery,
+  };
+};
 
 export default Projects;
