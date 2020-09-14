@@ -2,7 +2,7 @@ import { NextSeo } from 'next-seo';
 import Link from '@/components/Link';
 import { Query } from 'react-apollo';
 import { getCommunicationTopMenu } from '@/queries/getCommunicationTopMenu';
-import styles from './Communication.module.scss';
+import styles from '@/components/CommunicationTopMenu/CommunicationTopMenu.module.scss';
 import classNames from 'classnames/bind';
 let cx = classNames.bind(styles);
 
