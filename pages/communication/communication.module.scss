@@ -1,0 +1,55 @@
+@import '@/styles/globals.scss';
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  background: rgba($color-two, 0.5);
+  padding: vw(15px);
+  border-radius: vw(5px);
+  height: 100%;
+  margin: vw(15px) 0;
+}
+
+.email-items {
+  position: relative;
+  li {
+    display: flex;
+    padding: vw(10px);
+    background: rgba($color-white, 0.1);
+    border-radius: vw(5px);
+    margin-bottom: vw(15px);
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      position: relative;
+      top: 0;
+      margin: 0;
+      padding: 0 vw(20px) 0 0;
+      overflow: hidden;
+      span {
+        width: vw(20px);
+        height: vw(20px);
+        background: transparent;
+        border: vw(2px) solid $color-one;
+        border-radius: vw(4px);
+        &:hover {
+          background: $color-white;
+        }
+        &::after {
+          left: vw(5px) !important;
+          top: vw(2px) !important;
+          width: vw(4px) !important;
+          height: vw(7px) !important;
+        }
+      }
+      input:checked ~ span {
+        background-color: $color-green !important;
+      }
+    }
+    .item {
+      padding-left: vw(6px);
+    }
+  }
+}
