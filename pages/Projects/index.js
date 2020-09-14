@@ -1,17 +1,19 @@
 import { NextSeo } from 'next-seo';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-//import { getMyProjects } from '@/queries/getMyProjects';
 
 import { parseCookies } from 'nookies';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 function Projects({ myProjectsQuery }) {
   return (
     <>
-      <NextSeo title={'Projekty'} description={'Opis strony tutaj'} />
-      <p>Testowanie SEO</p>
+      <NextSeo title={'Projekty'} />
 
-      <h2>Lista projektów per User</h2>
+      <h2>
+        Lista projektów per User <FontAwesomeIcon icon={faCoffee} />
+      </h2>
       <hr />
       {/* {console.log('UserID: ' + myProjects)} */}
       <hr />
@@ -39,7 +41,7 @@ function Projects({ myProjectsQuery }) {
   );
 }
 
-Projects.getInitialProps = async (ctx) => {
+Projects.getInitialProps = async () => {
   const cookies = parseCookies();
   const currentUserId = cookies.userId;
 

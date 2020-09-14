@@ -11,6 +11,9 @@
   "dependencies": {
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "apollo-boost": "^0.4.9",
     "axios": "^0.20.0",
     "classnames": "^2.2.6",
@@ -30,6 +33,7 @@
     "react": "16.13.1",
     "react-apollo": "^3.1.5",
     "react-dom": "16.13.1",
+    "react-fontawesome": "^1.7.1",
     "react-router-dom": "^5.2.0",
     "sass": "^1.26.10",
     "swr": "^0.3.2"
