@@ -22,13 +22,14 @@ const client = new ApolloClient({
   uri: API_URL,
 });
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, userSecret }) {
   const router = useRouter();
   const cookies = parseCookies();
+
   return (
     <>
       <ApolloProvider client={client}>
-        {router.route !== '/login' ? (
+        {userSecret !== undefined ? (
           <>
             <DefaultSeo {...SEO} />
             <Header
@@ -52,15 +53,6 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-function redirectUser(ctx, location) {
-  if (ctx.req) {
-    ctx.res.writeHead(302, { Location: location });
-    ctx.res.end();
-  } else {
-    Router.push(location);
-  }
-}
-
 MyApp.getInitialProps = async ({ Component, ctx }) => {
   let pageProps = {};
   const userSecret = parseCookies(ctx).userSecret;
@@ -69,14 +61,9 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
     pageProps = await Component.getInitialProps(ctx);
   }
 
-  if (!userSecret) {
-    if (ctx.pathname === '/projects') {
-      redirectUser(ctx, '/login');
-    }
-  }
-
   return {
     pageProps,
+    userSecret,
   };
 };
 

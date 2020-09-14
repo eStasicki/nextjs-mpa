@@ -518,3 +518,15 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+// Preformated code
+
+pre {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  padding: vw(10px);
+  border-radius: vw(10px);
+  border: vw(1px) solid #fff;
+  background: rgba(#fff, 0.1);
+  margin: 20px 0;
+}
