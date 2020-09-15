@@ -13,11 +13,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: vw(10px);
+      padding: vw(10px) vw(15px);
       border-radius: vw(5px);
+      margin-right: vw(10px);
       transition: all 0.2s linear;
       &:hover {
-        background: $color-green;
+        background: $color-two;
+      }
+    }
+    &:last-child {
+      a {
+        margin-right: 0;
       }
     }
   }
