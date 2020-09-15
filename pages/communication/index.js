@@ -1,4 +1,5 @@
 import { NextSeo } from 'next-seo';
+import { Scrollbars } from 'react-custom-scrollbars';
 import styles from './communication.module.scss';
 import classNames from 'classnames/bind';
 let cx = classNames.bind(styles);
@@ -9,6 +10,8 @@ import CustomCheckbox from '@/components/CustomCheckbox';
 
 import customEmailsDatas from './customEmailsDatas.json';
 
+const scroll = { targetDiv: { height: '39vw' } };
+
 function Communication() {
   const emeilItems = customEmailsDatas;
   return (
@@ -16,16 +19,23 @@ function Communication() {
       <NextSeo title={'Komunikacja'} description={'Opis strony tutaj'} />
       <CommunicationTopMenu />
       <div className={cx('wrapper')}>
-        <ul className={cx('email-items')}>
-          {emeilItems.map((email) => {
-            return (
-              <li key={email.id}>
-                <CustomCheckbox />
-                <span className={cx('item')}>{email.subject}</span>
-              </li>
-            );
-          })}
-        </ul>
+        <Scrollbars
+          autoHeight
+          autoHeightMin={scroll.targetDiv.height}
+          universal={true}
+          className={cx('scrollbars-container')}
+        >
+          <ul className={cx('email-items')}>
+            {emeilItems.map((email) => {
+              return (
+                <li key={email.id}>
+                  <CustomCheckbox />
+                  <span className={cx('item')}>{email.subject}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </Scrollbars>
       </div>
     </>
   );
