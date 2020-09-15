@@ -10,33 +10,55 @@ import CustomCheckbox from '@/components/CustomCheckbox';
 
 import customEmailsDatas from './customEmailsDatas.json';
 
-const scroll = { targetDiv: { height: '100%' } };
+const verticalScrollHeight = { vontainerHeight: { height: '100%' } };
 
 function Communication() {
-  const emeilItems = customEmailsDatas;
+  const emailItems = customEmailsDatas;
+  const emailItemsCount = emailItems.length;
+  console.log(emailItemsCount);
+
+  let emails;
+
+  if (emailItemsCount > 10) {
+    emails = (
+      <Scrollbars
+        autoHeightMin={verticalScrollHeight.vontainerHeight.height}
+        autoHeightMax={1000}
+        universal={true}
+        className={cx('scrollbars-container')}
+      >
+        <ul className={cx('email-items')}>
+          {emailItems.map((email) => {
+            return (
+              <li key={email.id}>
+                <CustomCheckbox />
+                <span className={cx('item')}>{email.subject}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </Scrollbars>
+    );
+  } else {
+    emails = (
+      <ul className={cx('email-items')}>
+        {emailItems.map((email) => {
+          return (
+            <li key={email.id}>
+              <CustomCheckbox />
+              <span className={cx('item')}>{email.subject}</span>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
+
   return (
     <>
       <NextSeo title={'Komunikacja'} description={'Opis strony tutaj'} />
       <CommunicationTopMenu />
-      <div className={cx('wrapper')}>
-        <Scrollbars
-          autoHeightMin={scroll.targetDiv.height}
-          autoHeightMax={1000}
-          universal={true}
-          className={cx('scrollbars-container')}
-        >
-          <ul className={cx('email-items')}>
-            {emeilItems.map((email) => {
-              return (
-                <li key={email.id}>
-                  <CustomCheckbox />
-                  <span className={cx('item')}>{email.subject}</span>
-                </li>
-              );
-            })}
-          </ul>
-        </Scrollbars>
-      </div>
+      <div className={cx('wrapper')}>{emails}</div>
     </>
   );
 }
