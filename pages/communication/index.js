@@ -15,8 +15,6 @@ const verticalScrollHeight = { vontainerHeight: { height: '100%' } };
 function Communication() {
   const emailItems = customEmailsDatas;
   const emailItemsCount = emailItems.length;
-  console.log(emailItemsCount);
-
   let emails;
 
   if (emailItemsCount > 10) {
