@@ -8,6 +8,8 @@
   bottom: 0;
   overflow-y: auto;
   .container {
+    position: relative;
     padding: vw(15px);
+    height: 100%;
   }
 }

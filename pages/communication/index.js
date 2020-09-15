@@ -10,7 +10,7 @@ import CustomCheckbox from '@/components/CustomCheckbox';
 
 import customEmailsDatas from './customEmailsDatas.json';
 
-const scroll = { targetDiv: { height: '39vw' } };
+const scroll = { targetDiv: { height: '100%' } };
 
 function Communication() {
   const emeilItems = customEmailsDatas;
@@ -20,8 +20,8 @@ function Communication() {
       <CommunicationTopMenu />
       <div className={cx('wrapper')}>
         <Scrollbars
-          autoHeight
           autoHeightMin={scroll.targetDiv.height}
+          autoHeightMax={1000}
           universal={true}
           className={cx('scrollbars-container')}
         >

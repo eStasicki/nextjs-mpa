@@ -1,13 +1,15 @@
 @import '@/styles/globals.scss';
 
 .wrapper {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  left: vw(15px);
+  right: vw(15px);
+  bottom: vw(18px);
+  top: vw(98px);
   background: rgba($color-two, 0.5);
   padding: vw(15px);
   border-radius: vw(5px);
-  height: 100%;
-  margin: vw(15px) 0;
+  margin: 0;
 }
 
 .email-items {
@@ -29,8 +31,8 @@
       padding: 0 vw(20px) 0 0;
       overflow: hidden;
       span {
-        width: vw(20px);
-        height: vw(20px);
+        width: vw(18px);
+        height: vw(19px);
         background: transparent;
         border: vw(2px) solid $color-one;
         border-radius: vw(4px);
@@ -39,9 +41,9 @@
         }
         &::after {
           left: vw(5px) !important;
-          top: vw(2px) !important;
-          width: vw(4px) !important;
-          height: vw(7px) !important;
+          top: vw(3px) !important;
+          width: vw(3px) !important;
+          height: vw(5px) !important;
         }
       }
       input:checked ~ span {
@@ -50,6 +52,32 @@
     }
     .item {
       padding-left: vw(6px);
+    }
+  }
+}
+
+// Scrollbars container
+.scrollbars-container {
+  position: relative;
+  &:hover {
+    > div:nth-child(3) {
+      opacity: 1;
+    }
+  }
+  > div {
+    &:nth-child(1) {
+      padding-right: vw(17px);
+    }
+    &:nth-child(3) {
+      background: rgba($color-white, 0.2);
+      border-radius: vw(3px) !important;
+      right: 0 !important;
+      width: vw(6px) !important;
+      opacity: 0.2;
+      transition: all 0.3s linear;
+      & > div {
+        background: rgba($color-white, 1) !important;
+      }
     }
   }
 }
